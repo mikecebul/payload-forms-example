@@ -20,7 +20,7 @@ export const fields = {
   email: Email,
   message: Message,
   number: Number,
-  payment: Payment,
+  // payment: Payment,
   select: Select,
   state: State,
   text: Text,

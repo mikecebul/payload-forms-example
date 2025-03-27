@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/utilities/ui'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -24,7 +24,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
                   <Label htmlFor="password">Password</Label>
                   <a
                     href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                    className="inline-block ml-auto text-sm underline-offset-4 hover:underline"
                   >
                     Forgot your password?
                   </a>
@@ -40,7 +40,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
                 </Button>
               </div>
             </div>
-            <div className="mt-4 text-center text-sm">
+            <div className="mt-4 text-sm text-center">
               Don&apos;t have an account?{' '}
               <a href="#" className="underline underline-offset-4">
                 Sign up

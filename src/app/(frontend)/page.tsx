@@ -1,10 +1,3 @@
-import { LoginForm } from '@/components/login-form'
-import './globals.css'
+import PageTemplate from './[slug]/page'
 
-export default async function HomePage() {
-  return (
-    <div className="w-full max-w-sm">
-      <LoginForm />
-    </div>
-  )
-}
+export default PageTemplate
