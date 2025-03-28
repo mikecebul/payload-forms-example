@@ -14,7 +14,8 @@ export type PostError = {
 }
 
 export const TanstackFormBlock = ({ form: payloadForm, enableIntro, introContent }: FormBlock) => {
-  const { confirmationMessage, confirmationType, fields } = typeof payloadForm !== 'string' ? payloadForm : {}
+  const { confirmationMessage, confirmationType, fields, formType } =
+    typeof payloadForm !== 'string' ? payloadForm : {}
 
   const [postError, setPostError] = useState<PostError | undefined>()
 
@@ -39,14 +40,15 @@ export const TanstackFormBlock = ({ form: payloadForm, enableIntro, introContent
       >
         <Card className="@container">
           <CardContent className="grid grid-cols-1 gap-4 @lg:grid-cols-2 p-6 auto-cols-fr">
-            {fields?.map((field) => (
-              <RenderFields
-                key={field.id}
-                field={field}
-                defaultValues={defaultValues}
-                form={form}
-              />
-            ))}
+            {formType === 'dynamic' &&
+              fields?.map((field) => (
+                <RenderFields
+                  key={field.id}
+                  field={field}
+                  defaultValues={defaultValues}
+                  form={form}
+                />
+              ))}
           </CardContent>
           <CardFooter className="flex flex-col items center">
             <form.AppForm>
