@@ -27,7 +27,7 @@ export const TanstackFormBlock = ({ form: payloadForm, enableIntro, introContent
     return <RichText data={confirmationMessage} />
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-2xl mx-auto max-md:px-2 ">
       {enableIntro && introContent && (
         <RichText className="mb-8 lg:mb-12" data={introContent} enableGutter={false} />
       )}

@@ -11,6 +11,9 @@ importers:
       '@payloadcms/db-mongodb':
         specifier: 3.31.0
         version: 3.31.0(@aws-sdk/credential-providers@3.758.0)(payload@3.31.0(graphql@16.10.0)(typescript@5.8.2))
+      '@payloadcms/email-nodemailer':
+        specifier: ^3.31.0
+        version: 3.31.0(payload@3.31.0(graphql@16.10.0)(typescript@5.8.2))
       '@payloadcms/next':
         specifier: 3.31.0
         version: 3.31.0(@types/react@19.0.10)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(graphql@16.10.0)(typescript@5.8.2))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.8.2)
@@ -883,6 +886,12 @@ packages:
 
   '@payloadcms/db-mongodb@3.31.0':
     resolution: {integrity: sha512-Eoh/CrT2AXhKtWMr6Gn2pG7TmmR5O4hIXq7zb+kZmiQAZcbwHC4KiTEEnVuqVXg2RXKz9KQDDYsYz9P4FeBk3g==}
+    peerDependencies:
+      payload: 3.31.0
+
+  '@payloadcms/email-nodemailer@3.31.0':
+    resolution: {integrity: sha512-F9oqqdVvorbDPMLTumOvupTY4Tpp6ajJzTPQJpvDJyrTRUl2mH3wYkBTtCnm7oCzv8mcurvM9aRfKTSOmySK0g==}
+    engines: {node: ^18.20.2 || >=20.9.0}
     peerDependencies:
       payload: 3.31.0
 
@@ -2991,6 +3000,10 @@ packages:
       sass:
         optional: true
 
+  nodemailer@6.9.16:
+    resolution: {integrity: sha512-psAuZdTIRN08HKVd/E8ObdV6NO7NTBY3KsC30F7M4H1OnmLCUNaS56FpYxyb26zWLSyYF9Ozch9KYHhHegsiOQ==}
+    engines: {node: '>=6.0.0'}
+
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
@@ -4842,6 +4855,11 @@ snapshots:
       - socks
       - supports-color
 
+  '@payloadcms/email-nodemailer@3.31.0(payload@3.31.0(graphql@16.10.0)(typescript@5.8.2))':
+    dependencies:
+      nodemailer: 6.9.16
+      payload: 3.31.0(graphql@16.10.0)(typescript@5.8.2)
+
   '@payloadcms/graphql@3.31.0(graphql@16.10.0)(payload@3.31.0(graphql@16.10.0)(typescript@5.8.2))(typescript@5.8.2)':
     dependencies:
       graphql: 16.10.0
@@ -6382,7 +6400,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.26.1(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.8.7(eslint-plugin-import@2.31.0)(eslint@9.23.0(jiti@2.4.2)))(eslint@9.23.0(jiti@2.4.2)):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.26.1(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.8.7)(eslint@9.23.0(jiti@2.4.2)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -6404,7 +6422,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.23.0(jiti@2.4.2)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.26.1(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.8.7(eslint-plugin-import@2.31.0)(eslint@9.23.0(jiti@2.4.2)))(eslint@9.23.0(jiti@2.4.2))
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.26.1(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.8.7)(eslint@9.23.0(jiti@2.4.2))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -7414,6 +7432,8 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+
+  nodemailer@6.9.16: {}
 
   normalize-path@3.0.0: {}
 

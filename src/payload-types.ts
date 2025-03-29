@@ -230,6 +230,38 @@ export interface Form {
     } | null;
     url?: string | null;
   };
+  /**
+   * Send custom emails when the form submits. Use comma separated lists to send the same email to multiple recipients. To reference a value from this form, wrap that field's name with double curly brackets, i.e. {{firstName}}. You can use a wildcard {{*}} to output all data and {{*:table}} to format it as an HTML table in the email.
+   */
+  emails?:
+    | {
+        emailTo?: string | null;
+        cc?: string | null;
+        bcc?: string | null;
+        replyTo?: string | null;
+        emailFrom?: string | null;
+        subject: string;
+        /**
+         * Enter the message that should be sent in this email.
+         */
+        message?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -643,6 +675,18 @@ export interface FormsSelect<T extends boolean = true> {
         type?: T;
         reference?: T;
         url?: T;
+      };
+  emails?:
+    | T
+    | {
+        emailTo?: T;
+        cc?: T;
+        bcc?: T;
+        replyTo?: T;
+        emailFrom?: T;
+        subject?: T;
+        message?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;

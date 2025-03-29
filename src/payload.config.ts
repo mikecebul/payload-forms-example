@@ -1,4 +1,5 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
@@ -29,6 +30,18 @@ export default buildConfig({
   },
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
+  }),
+  email: nodemailerAdapter({
+    defaultFromAddress: process.env.EMAIL_SMTP_USER ?? 'dev@payload.com',
+    defaultFromName: 'Payload Form Example',
+    transportOptions: {
+      host: process.env.EMAIL_SMTP_HOST ?? 'localhost',
+      port: process.env.EMAIL_SMTP_PORT ?? '1025',
+      auth: {
+        user: process.env.EMAIL_SMTP_USER ?? 'dev',
+        pass: process.env.EMAIL_SMTP_PASS ?? 'password',
+      },
+    },
   }),
   sharp,
   plugins: [],

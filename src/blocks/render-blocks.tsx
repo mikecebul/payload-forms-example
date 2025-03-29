@@ -24,7 +24,7 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div className="container my-16" key={index}>
+                <div className="w-full my-16" key={index}>
                   <Block {...block} />
                 </div>
               )
