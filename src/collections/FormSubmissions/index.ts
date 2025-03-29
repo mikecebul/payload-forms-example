@@ -80,7 +80,6 @@ const sendEmail: CollectionBeforeChangeHook = async (args) => {
               cc,
               from,
               html: `<div>${serializedMessage}</div>`,
-              // html: `<div>Hello World</div>`,
               replyTo,
               subject: replaceDoubleCurlys(subject, submissionData),
               to,
@@ -88,14 +87,8 @@ const sendEmail: CollectionBeforeChangeHook = async (args) => {
           }),
         )
 
-        const emailsToSend = formattedEmails
-
-        // if (typeof beforeEmail === 'function') {
-        //   emailsToSend = await beforeEmail(formattedEmails, beforeChangeParameters)
-        // }
-
         await Promise.all(
-          emailsToSend.map(async (email) => {
+          formattedEmails.map(async (email) => {
             const { to } = email
             try {
               const emailPromise = await payload.sendEmail(email)
