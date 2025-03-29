@@ -1,5 +1,6 @@
 import type { CollectionBeforeChangeHook, CollectionConfig } from 'payload'
 import { replaceDoubleCurlys } from './utils/replace-double-curlys'
+import { serializeLexical } from './utils/Lexical/serialize-lexical'
 
 export const FormSubmissions: CollectionConfig = {
   slug: 'form-submissions',
@@ -72,14 +73,14 @@ const sendEmail: CollectionBeforeChangeHook = async (args) => {
               submissionData,
             )
 
-            // const serializedMessage = await serializeLexical(message, submissionData)
+            const serializedMessage = await serializeLexical(message, submissionData)
 
             return {
               bcc,
               cc,
               from,
-              // html: `<div>${serializedMessage}</div>`,
-              html: `<div>Hello World</div>`,
+              html: `<div>${serializedMessage}</div>`,
+              // html: `<div>Hello World</div>`,
               replyTo,
               subject: replaceDoubleCurlys(subject, submissionData),
               to,
