@@ -11,7 +11,7 @@ import PhoneField from '../field-components/phone-field'
 import StateField from '../field-components/state-field'
 import CountryField from '../field-components/country-field'
 import SelectField from '../field-components/select-field'
-import SubmitButton from '../form-components/subscribe-button'
+import SubmitButton from '../form-components/submit-button'
 
 export const { useAppForm, withForm } = createFormHook({
   fieldComponents: {

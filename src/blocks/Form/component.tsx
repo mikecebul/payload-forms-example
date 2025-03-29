@@ -35,7 +35,7 @@ export const TanstackFormBlock = ({ form: payloadForm, enableIntro, introContent
         onSubmit={(e) => {
           e.preventDefault()
           e.stopPropagation()
-          // form.handleSubmit()
+          form.handleSubmit()
         }}
       >
         <Card className="@container">

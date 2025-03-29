@@ -19,7 +19,7 @@ export default async function Page({ params: paramsPromise }: PageParams) {
     collection: 'pages',
     draft: false,
     limit: 1,
-    overrideAccess: true,
+    overrideAccess: false,
     where: {
       slug: {
         equals: slug,

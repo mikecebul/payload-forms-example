@@ -3,6 +3,9 @@ import { fields } from './fields'
 
 export const Forms: CollectionConfig = {
   slug: 'forms',
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: 'title',
     group: 'Forms',

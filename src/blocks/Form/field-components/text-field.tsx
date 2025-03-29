@@ -24,7 +24,7 @@ export default function TextField({ id, label, name, colSpan }: TextFormField) {
         />
       </div>
       <div>
-        {errors && <em className="text-destructive first:mt-1 text-sm">{errors[0]?.message}</em>}
+        {errors && <em className="text-sm text-destructive first:mt-1">{errors[0]?.message}</em>}
       </div>
     </div>
   )

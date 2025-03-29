@@ -19,11 +19,11 @@ export const useFormOpts = ({
   setPostError: Dispatch<SetStateAction<PostError | undefined>>
 }) => {
   const {
-    // confirmationType,
+    confirmationType,
     fields,
     id: formId,
-    title: formType,
-    // redirect,
+    redirect,
+    title,
   } = typeof payloadForm !== 'string' ? payloadForm : {}
   const router = useRouter()
   const defaultValues = getDefaultValues(fields)
@@ -37,9 +37,7 @@ export const useFormOpts = ({
         const req = await fetch(`${getClientSideURL()}/api/form-submissions`, {
           body: JSON.stringify({
             form: formId,
-            formType: formType,
-
-            jsonData: data,
+            data,
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -58,9 +56,16 @@ export const useFormOpts = ({
           return
         }
 
-        // if (confirmationType === 'redirect' && redirect) {
-        //   if (redirect.url) router.push(redirect.url)
-        // }
+        if (confirmationType === 'redirect' && redirect) {
+          if (redirect.url) router.push(redirect.url)
+          if (
+            typeof redirect.reference !== 'string' &&
+            typeof redirect.reference?.value !== 'string' &&
+            redirect.reference?.value.slug
+          ) {
+            router.push(redirect.reference.value.slug)
+          }
+        }
 
         form.reset()
       } catch (err) {
